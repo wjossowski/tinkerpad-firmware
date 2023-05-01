@@ -1,0 +1,3 @@
+dir := $(shell pwd)
+
+kmk: 
