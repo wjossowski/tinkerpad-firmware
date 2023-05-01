@@ -5,7 +5,7 @@ from layers.layer import Layer
 
 ruler = KC.LGUI(KC.LSFT(KC.M))
 undo = KC.LGUI(KC.Z)
-redo = KC.LGUI(KC.V)
+redo = KC.LSFT(KC.LGUI(KC.Z))
 render = KC.LALT(KC.N3)
 close = KC.LGUI(KC.W)
 save = KC.LGUI(KC.S)
@@ -22,9 +22,9 @@ class KicadSCHLayer(Layer):
     keymap = [
         close,  KC.DF(0),   KC.X,   KC.X,
         # -----------------------------------------------
-        close,  save,       ruler,  KC.BSPC,
+        close,  KC.E,       ruler,  KC.BSPC,
         save,   duplicate,  KC.M,   KC.ENT,
-        render, KC.A,       KC.R,   redo,
+        KC.A,   KC.F,       KC.R,   redo,
         KC.ESC, KC.W,       KC.Q,   undo,
     ]
     enc = (KC.LSFT(KC.N), KC.N, close)
@@ -36,9 +36,9 @@ class KicadPCBLayer(Layer):
     keymap = [
         close,  KC.DF(0),   KC.X,       KC.X,
         # -----------------------------------------------
-        close,  save,       ruler,  KC.BSPC,
-        save,   duplicate,  KC.M,   KC.ENT,
-        render, KC.A,       KC.R,   redo,
+        close,  KC.E,       ruler,  KC.BSPC,
+        save,   KC.H,       KC.M,   KC.ENT,
+        render, KC.F,       KC.R,   redo,
         KC.ESC, KC.X,       KC.V,   undo,
     ]
     enc = (KC.LSFT(KC.N), KC.N, close)
