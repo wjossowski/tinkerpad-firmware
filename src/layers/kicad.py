@@ -9,6 +9,7 @@ redo = KC.LSFT(KC.LGUI(KC.Z))
 render = KC.LALT(KC.N3)
 close = KC.LGUI(KC.W)
 save = KC.LGUI(KC.S)
+swap = KC.LGUI(KC.GRV)
 
 duplicate = simple_key_sequence([
     KC.LGUI(KC.C),
@@ -22,9 +23,9 @@ class KicadSCHLayer(Layer):
     keymap = [
         close,  KC.DF(0),   KC.X,   KC.X,
         # -----------------------------------------------
-        close,  KC.E,       ruler,  KC.BSPC,
+        close,  KC.E,       KC.A,  KC.BSPC,
         save,   duplicate,  KC.M,   KC.ENT,
-        KC.A,   KC.F,       KC.R,   redo,
+        swap,   KC.F,       KC.R,   redo,
         KC.ESC, KC.W,       KC.Q,   undo,
     ]
     enc = (KC.LSFT(KC.N), KC.N, close)
@@ -38,7 +39,7 @@ class KicadPCBLayer(Layer):
         # -----------------------------------------------
         close,  KC.E,       ruler,  KC.BSPC,
         save,   KC.H,       KC.M,   KC.ENT,
-        render, KC.F,       KC.R,   redo,
+        swap,   KC.F,       KC.R,   redo,
         KC.ESC, KC.X,       KC.V,   undo,
     ]
     enc = (KC.LSFT(KC.N), KC.N, close)
