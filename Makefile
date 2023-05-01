@@ -5,12 +5,17 @@ out := /Volumes/CIRCUITPY
 
 init: 
 	@cp -r ${libs}/kmk_firmware/kmk ${out}
-	@cp -r ${libs}/adafruit_display_text ${out}/lib
-	@cp ${libs}/adafruit_displayio_ssd1306.mpy ${out}/lib
+	@cp -r ${libs}/circuitpython/* ${out}/lib
+
+deinit: clean
+	@rm -rf ${out}/kmk
+	@rm -rf ${out}/lib/*
 
 flash:
-	@mkdir -p "${out}/boards"
+	@mkdir -p ${out}/boards ${out}/layers
 	@cp ${src}/boards/*.py ${out}/boards
-	@mkdir -p "${out}/layers"
 	@cp ${src}/layers/*.py ${out}/layers
-	@cp -r ${src}/*.py ${out}
+	@cp ${src}/*.py ${out}
+
+clean:
+	@rm -rf ${out}/*.py ${out}/layers ${out}/boards
