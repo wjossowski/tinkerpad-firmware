@@ -1,0 +1,3 @@
+[submodule "3rdparty/kmk_firmware"]
+	path = 3rdparty/kmk_firmware
+	url = git@github.com:wjossowski/kmk_firmware.git
