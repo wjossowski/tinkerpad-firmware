@@ -46,7 +46,7 @@ class Macropad(KMKKeyboard):
         enc = []
         for i, layer in enumerate(layers):
             enc.append(
-                (layer.enc, (self._prev(i, max), self._next(i, max), self._ground()))
+                ((self._prev(i, max), self._next(i, max), self._ground()), layer.enc)
             )
         return enc
 

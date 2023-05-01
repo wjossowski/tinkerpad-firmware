@@ -23,7 +23,7 @@ class KicadSCHLayer(Layer):
     keymap = [
         close,  KC.DF(0),   KC.X,   KC.X,
         # -----------------------------------------------
-        close,  KC.E,       KC.A,  KC.BSPC,
+        close,  KC.E,       KC.A,   KC.BSPC,
         save,   duplicate,  KC.M,   KC.ENT,
         swap,   KC.F,       KC.R,   redo,
         KC.ESC, KC.W,       KC.Q,   undo,
