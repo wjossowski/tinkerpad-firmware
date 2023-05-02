@@ -6,7 +6,7 @@ class BaseLayer(Layer):
     name = "Base"
     mode = "Numeric"
     keymap = [
-        KC.AUDIO_MUTE,  KC.DF(0),   KC.X,       KC.X,
+        KC.DF(0),  KC.AUDIO_MUTE,   KC.X,       KC.X,
         # -----------------------------------------------
         KC.ESC,         KC.NA,      KC.NA,      KC.ENT,
         KC.N7,          KC.N8,      KC.N9,      KC.DOT,
