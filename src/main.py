@@ -1,27 +1,16 @@
-from kmk.keys import KC
-from kmk.modules.encoder import EncoderHandler
-from kmk.modules.layers import Layers
-from kmk.extensions.media_keys import MediaKeys
-from kmk.extensions.peg_oled_Display import Oled, OledDisplayMode, OledReactionType, OledData
-
 from boards.rev1 import Macropad
 from layers.base import BaseLayer
 from layers.kicad import KicadSCHLayer, KicadPCBLayer
+from devices.oled import StatusOLED
+from layers.layer_composer import LayerComposer
 
-keyboard = Macropad()
-keyboard.setup([
-    BaseLayer(), KicadSCHLayer(), KicadPCBLayer()
-])
+kb = Macropad()
 
-oled_ext = Oled(
-    OledData(
-        corner_one={0: OledReactionType.STATIC, 1: ["Layer: "]},
-        corner_two={0: OledReactionType.STATIC, 1: [""]},
-        corner_three={0: OledReactionType.LAYER, 1: keyboard.layer_names},
-        corner_four={0: OledReactionType.LAYER, 1: keyboard.layer_modes}
-    ),
-    toDisplay=OledDisplayMode.TXT, flip=True)
-keyboard.extensions.append(oled_ext)
+layers = LayerComposer([ BaseLayer(), KicadSCHLayer(), KicadPCBLayer() ])
+layers.install_on(kb, kb.enc_pins)
+
+oled = StatusOLED(layers.names, layers.modes)
+oled.install_on(kb)
 
 if __name__ == '__main__':
-    keyboard.go()
+    kb.go()

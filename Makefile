@@ -12,9 +12,10 @@ deinit: clean
 	@rm -rf ${out}/lib/*
 
 flash:
-	@mkdir -p ${out}/boards ${out}/layers
+	@mkdir -p ${out}/boards ${out}/layers ${out}/devices
 	@cp ${src}/boards/*.py ${out}/boards
 	@cp ${src}/layers/*.py ${out}/layers
+	@cp ${src}/devices/*.py ${out}/devices
 	@cp ${src}/*.py ${out}
 
 clean:
